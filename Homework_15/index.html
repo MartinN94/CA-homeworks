@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+        <title>Homework_15</title>
+    </head>
+<body>
+    
+    <div class="container">
+
+    </div>
+
+
+
+    <script>
+
+        var div = document.querySelector(".container");
+
+        var heading = document.createElement("h1");
+        heading.textContent = "My Shopping List";
+
+        var label = document.createElement("label");
+        label.textContent = "Enter Products";
+        label.setAttribute("for", "product");
+
+        var input = document.createElement("input");
+        input.setAttribute("type", "text");
+        input.setAttribute("class", "form-control");  
+        input.setAttribute("id", "product"); 
+        input.setAttribute("placeholder", "Enter Your Product Name");
+
+        var button = document.createElement("button");
+        button.textContent = "Add to Cart";
+        button.setAttribute("type", "button");
+        button.setAttribute("class", "btn btn-primary mt-3");
+        button.addEventListener("click", addProduct);
+
+        var list =  document.createElement("ul");
+        list.setAttribute("class", "list-group");
+
+        div.appendChild(heading); 
+        div.appendChild(label);
+        div.appendChild(input);
+        div.appendChild(button);
+        div.appendChild(list);
+
+        function addProduct() {
+            var product = document.createElement("li");
+            product.setAttribute("class", "list-group-item mt-3");
+            product.textContent = input.value;
+            var deleteBtn =  document.createElement("button");
+            deleteBtn.setAttribute("type", "button");
+            deleteBtn.setAttribute("class", "btn btn-sm btn-danger");
+            deleteBtn.textContent = "Delete product";
+            deleteBtn.addEventListener("click", deleteProduct);
+
+            list.appendChild(product);
+            list.appendChild(deleteBtn);
+            input.value = "";
+
+            function deleteProduct() {
+            list.removeChild(product);
+            list.removeChild(deleteBtn);
+            
+        }
+
+        }
+
+
+
+
+    </script>
+</body>
+</html>
