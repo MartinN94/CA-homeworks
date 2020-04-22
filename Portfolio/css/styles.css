@@ -1,0 +1,46 @@
+#main-header img {
+    width: 100%;
+    height: 100%;
+}
+.bg-black {
+    background: black;
+}
+div.bg-black h3 {
+    margin-left: 5%;
+}
+.colhome {
+    background:#5d8d5d ;
+}
+.colresume {
+    background:#72a75b;
+}
+.colwork {
+    background:#b4d6ad;
+}
+.colcontact {
+    background:#a3d0b5;
+}
+#main-header .port-item {
+    width: 30%;
+}
+#main-header .port-item:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+@media (min-width: 1200px) {
+    .port-item {
+        padding: 3em !important;
+    }
+}
+.myPage {
+    background: #5d8d5d !important;
+}
+.myResume {
+    background: #72a75b !important;
+}
+.myWork {
+    background: #b4d6ad !important;
+}
+.myContact {
+    background: #a3d0b5 !important;
+}

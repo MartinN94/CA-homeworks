@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person viewer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- HOMEWORK HTML -->
+    <div class="container">
+        <div class="row mt-2 align-items-end">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="load-data">User</label>
+                <select class="custom-select mr-sm-2" id="load-data-select">
+                    <option value="" selected>Choose...</option>
+                    <option value="John">John</option>
+                    <option value="Rob">Rob</option>
+                    <option value="Jane">Jane</option>
+                </select>
+            </div>
+
+            <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary" id="load-data-button">Load data</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto my-1">
+                <div class="form-group">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="webiste">Website</label>
+                    <input type="text" class="form-control" id="website">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+    <!-- HINTS partially in script section, dont look - TRY YOURSELF FIRST!!!!  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        var inputs = document.getElementsByTagName('input');
+        var select = document.getElementById("load-data-select");
+        var button = document.getElementById("load-data-button");
+
+        button.addEventListener("click", loadUserData);
+        // create users objects 
+
+        // var john = { };
+        // var rob = { };
+        // var jane = { };
+
+        // add users objects to array
+        // var users = [john, rob, jane];
+
+        function loadUserData() {
+            // we get user selected in Select box ( Choose...)
+            var selectedUser = select.value;
+            console.log(selectedUser); // try it works when you press "Load data button", you should see value you selected in Select box
+
+            //If selectedUser is empty loop all inputs[] and set their values to ""
+            if(!selectedUser) {
+                //...loop here
+            }
+
+            for(var i=0; i<users.length; i++) {
+               //Loop users array and check if users[i].firstName === selectedUser, if check is true, fill inputs[] with data from object
+            }    
+           
+        }
+
+    </script>
+</body>
+
+</html>

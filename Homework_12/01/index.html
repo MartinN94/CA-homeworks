@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework_12.01</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        var markMass;
+        markMass = 86 ;
+        var markHeith;
+        markHeith = 1.79 ;
+        var johnMass;
+        johnMass = 92 ;
+        var johnHeith;
+        johnHeith = 1.85;
+        var markBMI;
+        markBMI = (markMass/ (markHeith*markHeith))
+        var johnBMI;
+        johnBMI = (johnMass/ (johnHeith*johnHeith))
+
+
+        console.log("Mark\'s mass is:"+ markMass + "kg");
+        console.log("Mark\'s heith is:"+ markHeith + "m");
+        console.log("John\'s mass is:"+ johnMass + "kg");
+        console.log("John\'s heith is:"+ johnHeith + "m");
+        console.log("Mark\'s BMI is:" + markBMI);
+        console.log("John\'s BMI is:" + johnBMI);
+
+        if (markBMI > johnBMI) {
+            console.log("Mark has higher BMI");
+            
+        } else {
+            console.log("John has higher BMI");
+            
+        }
+        
+        
+
+    </script>
+</body>
+</html>
+
+
+/*****************************
+* Homework12 01
+*/
+
+/*
+Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).
+
+1. Store Mark's and John's mass and height in variables
+2. Calculate both their BMIs
+3. Write IF condition to output to console who has a higher BMI, if Mark has higher BMI ouptu "Mark has higher BMI", if John has higher BMI output "John has higher BMI" ,
+if they have equal BMI output " Jhon and Mark has same BMI"
+
+*/

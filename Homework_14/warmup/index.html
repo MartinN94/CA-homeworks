@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_14-warmup</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        for (var i=1; i<=100; i++ );
+        console.log(i -1);
+        
+        var sentance = '';
+        var words = ['This', 'is', 'an', 'amazing', 'sentance'];
+    
+        for (var i=0; i < words.length; i++ ){
+            if( i === words.length -1){
+                sentance = words + ".";
+            }
+        }
+        console.log(sentance);
+        
+
+        var myArray = [null, 0, 1, 2, "five", "six", 3, 4, undefined, 5, 7]
+
+        console.log(mySumCalculator(myArray));
+
+        function mySumCalculator(arr) {
+
+         var sum = 0;
+
+        for (var i = 0; i < arr.length; i++) {
+
+        if (!arr[i]) { 
+            continue; 
+        }
+
+        if (typeof arr[i] === "string") { 
+            continue;
+        }
+
+        sum += arr[i];
+    }
+
+        return sum;
+}
+
+
+
+        
+        
+
+    </script>
+
+</body>
+</html>

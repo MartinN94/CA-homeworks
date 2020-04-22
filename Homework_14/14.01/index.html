@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_14.01</title>
+</head>
+<body>
+    
+    
+    
+    
+    /*****************************
+    * Homework 14 01
+    */
+    
+    /*
+    Let's remember the previous Homework where Mark and John compared their BMIs. Let's now implement the same functionality with objects and methods.
+    1. For each of them, create an object with properties for their full name, mass, and height
+    2. Then, add a method to each object to calculate the BMI. Save the BMI to the object and also return it from the method.
+    3. In the end, log to the console who has the highest BMI, together with the full name and the respective BMI. Don't forget they might have the same BMI.
+
+    Remember: BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).
+    
+
+
+    <script>
+
+        var mark = {
+            name: "Mark",
+            mass: 86,
+            heith: 1.79,
+            BMI : function() {
+                return this.mass / (this.heith * this.heith);
+
+            }
+            
+        };
+        
+        var john = {
+            name: "John",
+            mass: 92,
+            heith: 1.85,
+            BMI : function() {
+                return this.mass / (this.heith * this.heith);
+
+            }
+        };
+
+        if (mark.BMI > john.BMI) {
+            console.log("Mark\'s BMI is higher. His BMI is:" + mark.BMI);
+            } 
+            else {
+            console.log("John\'s BMI is higher. His BMI is:" + john.BMI);
+        }
+    
+        
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+html{
+    width: 800px;
+    margin: auto;
+    
+}  
+div#center{
+    width: 500px;
+    float: left;
+}
+h1~p{
+    background-color: gray; 
+    color: white;
+    font-size: 20px;
+}
+main>div img{
+    size: 250px;    
+    margin: auto;   
+    display: block;
+}
+main>div>p{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+main>div fieldset{
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+}
+div#right{
+    width: 300px;
+    height: 575px;
+    margin-left: 520px;
+    border-left: solid 1px black;
+}
+div#right>aside{
+    margin-left: 10px;
+}

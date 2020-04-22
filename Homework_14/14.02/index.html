@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+    var john = {
+    name: 'John',
+    bills: [124, 48, 268, 180, 42],
+    tips: [],
+    totals: [],
+    tipsCalc: function () {
+        for (i = 0; i < this.bills.length; i++) {
+            if (this.bills[i] < 50) {
+                var tip = this.bills[i] * 0.2;                        
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            } else if (this.bills[i] >= 50 && this.bills[i] <= 200) {
+                var tip = this.bills[i] * 0.15;
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            } else if (this.bills[i] > 200) {
+                var tip = this.bills[i] * 0.1;
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            }
+        }
+    }
+}
+    john.tipsCalc();
+
+    console.log(john.tips);
+    console.log(john.totals);
+    
+    var mark = {
+    name: 'Mark',
+    bills: [77, 375, 110, 45],
+    tips: [],
+    totals: [],
+    tipsCalc: function () {
+        for (i = 0; i < this.bills.length; i++) {
+            if (this.bills[i] < 100) {
+                var tip = this.bills[i] * 0.2;                        
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            } else if (this.bills[i] >= 100 && this.bills[i] <= 300) {
+                var tip = this.bills[i] * 0.1;
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            } else if (this.bills[i] > 300) {
+                var tip = this.bills[i] * 0.25;
+                this.tips.push(tip);
+                this.totals.push(this.bills[i] + tip);
+            }
+        }
+    }
+}
+    mark.tipsCalc();
+
+    console.log(mark.tips);
+    console.log(mark.totals);
+
+    avetageTips = function() {
+        var total = 0;
+        for(var i = 0; i < tips.length; i++) {
+        total += tips[i];
+}
+        return total / tips.length;
+    }
+
+    
+    
+
+
+    </script>
+</body>
+</html>
