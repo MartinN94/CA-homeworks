@@ -16,7 +16,7 @@
             <div class="form-group">
                 <br>
                 <label for="textInput" class="d-block">Please type your favourite fruits separated by comma:</label>
-                <input type="text" id="textInput" class="form-control rounded w-50 m-auto">
+                <input type="text" id="textInput" class="form-control rounded w-50 m-auto d-block">
                 <br>
                 <small class="d-block">You can type fruits only from this list:</small>
                 <br>
@@ -31,81 +31,72 @@
     </div>
 
 
-    <script>
+    <script>           
+        var container = document.querySelector(".container");
+        var rowFruit= document.querySelector("ul");
+        rowFruit.className = "";
+        var input = document.querySelector("input");
+        var addFruits = document.querySelector("button");
+        addFruits.addEventListener("click", addToList);
+        var allowedFruits = "apples, pears, oranges, pineapples, kiwis, bananas, berries, watermelons, lemons";
+        var avilableFruits = document.querySelector("#allowed");
+        avilableFruits.textContent = allowedFruits
 
-        var allowedFruitsArr = ["apples", "pears", "oranges", "pineapples", "kiwis", "bananas", "berries", "watermelons", "lemons"];
-        allowedFruits = allowedFruitsArr.join(", ");
+        
+        function addToList() {
+            var inputValues = input.value ? input.value :false;
+            var splittedInputValues = inputValues.split(",");        
 
-        var dispAllowed = document.querySelector("#allowed")
-        dispAllowed.textContent = allowedFruitsArr;
+                     
+            if (inputValues !== false) {
 
-        var inputElement = document.querySelector("input");
-        var unorderedList = document.querySelector("ul");
-        var invalidInput = document.querySelector("#invalid-input");
-        var addButton = document.querySelector("button");
-
-        addButton.addEventListener("click", addFruits);
-
-        function addFruits() {
-            var userInput = inputElement.value ? inputElement.value : false; 
-
-            if (userInput !== false){
-                var userInputArr = userInput.split(", ")
-                for (i = 0; i < userInputArr; i++) {
-                if (allowedFruits(userInputArr[i])) {
-                    addValidFruits(userInputArr[i].trim())
-                } else if (allowedFruits(userInputArr[i]) === -1) {
-                    notAllowedFruits.push(userInputArr[i].trim());
+                var notAllowedInput = [];
+                
+                for ( var i=0; i<splittedInputValues.length; i++ ) {
+                    if ( allowedFruits.indexOf(splittedInputValues[i]) !== -1 ) {
+                        insertFruit(splittedInputValues[i].trim());
+                    } else if ( allowedFruits.indexOf(splittedInputValues[i]) === -1 ) {
+                        notAllowedInput.push(splittedInputValues[i].trim());
+                    }
                 }
-                }
-                var notAllowedFruits = [];
-                if (notAllowedFruits.length > 0) {
-                    invalidInput.textContent = "We cant add \"" + notAllowedFruits.join(", ") + "\". Its not in our fruit list.";
+                if ( notAllowedInput.length > 0) {
+                    input.className = "is-invalid form-control";
+                    input.setAttribute("type", "text");
+                    var invalidFeedback = document.querySelector("#invalid-input");
+                    invalidFeedback.style.color = "red";
+                    invalidFeedback.textContent = " We cant add \"" + notAllowedInput.join(", ") + "\" . Its not in our fruit list." 
                 } else {
-                    inputElement.className = "form-contol is-valid";
+                    input.className = "is-valid form-control";
+                    input.setAttribute("type", "text");
                 }
             }
-            
-        }
+        }             
+        function insertFruit(fruitname) {
 
-        function addValidFruits(fruit) {
-            var list = document.createElement("li");
+
+            var fruitList = document.createElement("li");
+            fruitList.textContent = input.value;
+            fruitList.className = "list-group-item float-left w-100";
+            rowFruit.appendChild(fruitList);
+
+            var btn = document.createElement("button");
+            btn.setAttribute("type", "button");
+            btn.className = "btn btn-danger m-auto float-right";
+            btn.textContent = "Delete";
+            fruitList.appendChild(btn);
+            btn.addEventListener("click", removeFromList);
 
             var div = document.createElement("div");
-            div.textContent = fruit;
+            div.className = "clearfix"
+            container.appendChild(div);
+            div.appendChild(rowFruit);
 
-            var delBtn = document.createElement("button");
-            delBtn.className = "btn btn-danger";
-            delBtn.textContent = "Delete";
-            unorderedList.appendChild(delBtn);
 
-            delBtn.addEventListener ("click", removeFromList);
-            unorderedList.appendChild (list);
-            list.appendChild(div);
-            list.appendChild(delBtn);
         }
-
         function removeFromList() {
-            var fruitDel = this.parentElement();
-            fruitDel.remove();
-        }
-
-
-
-
-        
-        
-
-        
-
-        
-        
-        
-
-
-
-
-
+            var fruit = this.parentElement;
+            fruit.remove();
+        }   
     </script>
 
 
