@@ -46,6 +46,49 @@
 
         addButton.addEventListener("click", addFruits);
 
+        function addFruits() {
+            var userInput = inputElement.value ? inputElement.value : false; 
+
+            if (userInput !== false){
+                var userInputArr = userInput.split(", ")
+                for (i = 0; i < userInputArr; i++) {
+                if (allowedFruits(userInputArr[i])) {
+                    addValidFruits(userInputArr[i].trim())
+                } else if (allowedFruits(userInputArr[i]) === -1) {
+                    notAllowedFruits.push(userInputArr[i].trim());
+                }
+                }
+                var notAllowedFruits = [];
+                if (notAllowedFruits.length > 0) {
+                    invalidInput.textContent = "We cant add \"" + notAllowedFruits.join(", ") + "\". Its not in our fruit list.";
+                } else {
+                    inputElement.className = "form-contol is-valid";
+                }
+            }
+            
+        }
+
+        function addValidFruits(fruit) {
+            var list = document.createElement("li");
+
+            var div = document.createElement("div");
+            div.textContent = fruit;
+
+            var delBtn = document.createElement("button");
+            delBtn.className = "btn btn-danger";
+            delBtn.textContent = "Delete";
+            unorderedList.appendChild(delBtn);
+
+            delBtn.addEventListener ("click", removeFromList);
+            unorderedList.appendChild (list);
+            list.appendChild(div);
+            list.appendChild(delBtn);
+        }
+
+        function removeFromList() {
+            var fruitDel = this.parentElement();
+            fruitDel.remove();
+        }
 
 
 
