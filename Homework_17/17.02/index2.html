@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Homework17_02 - Martin Mihailovski</title>
+</head>
+<body>
+    <main class="bg-light">       
+        <div class="container">
+            <h1 class="text-muted text-center py-3">Favourite fruits</h1>
+            <hr>
+            <div class="form-group col-md-6 offset-md-3 pb-3">
+                <label for="number">Please type your favourite fruits separated by comma:</label>
+                <input type="text" class="form-control" placeholder="Type your favourite fruits here" autofocus>
+                <small class="d-block">You can type fruits only from this list:</small>
+                <small class="d-block"></small>
+                <div class="invalid-feedback"></div>
+                <button class="btn btn-block btn-primary my-3">Add fruits</button>
+            </div>
+            <ul class="list-group pb-3"></ul>
+        </div>
+    </main>
+    <script>
+
+        // Put all of the allowed fruits in array (available to be changed in future)
+        var allowedFruitsArr = ['apples', 'pears', 'oranges', 'pineapples', 'kiwis', 'bananas', 'berries', 'watermelons', 'lemons'];
+        allowedFruits = allowedFruitsArr.join(", ");
+
+        // Show all of the allowed fruits in array on website - bellow the input element
+        var showAllowed = document.querySelectorAll("small")[1];
+        showAllowed.textContent = allowedFruits;
+        
+        // Get the required element to be used in functions
+        var inputElement = document.querySelector("input");
+        var unorderedList = document.querySelector("ul");
+        var errorFeedback = document.querySelector(".invalid-feedback");
+        var addButton = document.querySelector("button");
+
+        // Create event lister on button, to check when submit is initiated by user
+        addButton.addEventListener("click", addFruits);
+        
+
+        function addFruits() {
+            // Check if user input is empty, return false if it's empty
+            var userInput = inputElement.value ? inputElement.value : false;
+
+            // If user input element is not false, continue with the function
+            if (userInput !== false) {
+                // Split the fruits from user input in array
+                var userInputArr = userInput.split(",");
+
+                // Define two empty array, one for valid and one for invalid fruits
+                var invalidFruits = [];
+
+                for (var i = 0; i < userInputArr.length; i++) {
+                    // Check the userinput value if containe valid or invalid fruits - invalid push to empty invalidFruits array - valid send to insertValidFruit function
+                    if (allowedFruits.indexOf(userInputArr[i]) !== -1) {
+                        insertValidFruit(userInputArr[i].trim());
+                    } else if (allowedFruits.indexOf(userInputArr[i]) === -1) {
+                        invalidFruits.push(userInputArr[i].trim());
+                    }
+                }
+
+                // Check the invalid fruits array, if not empty set invalid message, if empty set valid message
+                if (invalidFruits.length > 0) {
+                    inputElement.setAttribute("class", "form-control is-invalid");
+                    errorFeedback.textContent = "We cant add \"" + invalidFruits.join(", ") + "\". Its not in our fruit list."; 
+                } else {
+                    inputElement.setAttribute("class", "form-control is-valid");
+                }
+            }
+        }
+
+        // Insert the valid fruits into our list
+        function insertValidFruit(fruitname) {
+            var listItem = document.createElement("li");
+            listItem.className = "list-group-item";
+
+            var div = document.createElement("div");
+            div.className = "float-left";
+            div.textContent = fruitname;
+
+            var delBtn = document.createElement("button");
+            delBtn.className = "btn btn-danger btn-sm float-right delete";
+            delBtn.textContent = "Delete";
+            delBtn.addEventListener("click", deleteFruit);
+
+            unorderedList.appendChild(listItem);
+            listItem.appendChild(div);
+            listItem.appendChild(delBtn);
+        }
+        
+        // Delete fruit from our list
+        function deleteFruit() {
+            var fruit = this.parentElement;
+            fruit.remove();
+        }
+
+    </script>
+</body>
+</html>

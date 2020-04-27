@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework_17.02</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container bg-light text-center">
+        <div class="bg-light">
+            <div class="text-center border-bottom">
+                <h2>Favourite fruits</h2>
+                <br>
+            </div>
+            <div class="form-group">
+                <br>
+                <label for="textInput" class="d-block">Please type your favourite fruits separated by comma:</label>
+                <input type="text" id="textInput" class="form-control rounded w-50 m-auto">
+                <br>
+                <small class="d-block">You can type fruits only from this list:</small>
+                <br>
+                <small class="d-block" id="allowed"></small>
+                <br>
+                <small class="d-block" id="invalid-input"></small>
+                <br>
+                <button class="btn btn-primary w-50">Add fruits</button>
+            </div>
+            <ul class="list-group"></ul>
+        </div>
+    </div>
+
+
+    <script>
+
+        var allowedFruitsArr = ["apples", "pears", "oranges", "pineapples", "kiwis", "bananas", "berries", "watermelons", "lemons"];
+        allowedFruits = allowedFruitsArr.join(", ");
+
+        var dispAllowed = document.querySelector("#allowed")
+        dispAllowed.textContent = allowedFruitsArr;
+
+        var inputElement = document.querySelector("input");
+        var unorderedList = document.querySelector("ul");
+        var invalidInput = document.querySelector("#invalid-input");
+        var addButton = document.querySelector("button");
+
+        addButton.addEventListener("click", addFruits);
+
+
+
+
+
+        
+        
+
+        
+
+        
+        
+        
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

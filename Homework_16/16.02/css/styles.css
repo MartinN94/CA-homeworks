@@ -1,0 +1,17 @@
+.container {
+    padding: 40px 5%;
+    width: 100%;
+    overflow: auto;
+}
+
+.col-3 {
+    width: calc(100% / 5);
+    float: left;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.box {
+    height: 150px;
+    background-color: blue;
+}
