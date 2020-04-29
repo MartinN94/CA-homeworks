@@ -1,0 +1,21 @@
+html {
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+}
+div {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    color: white;
+  }
+h2 {
+    word-spacing: 2em;
+}
+.count{
+    word-spacing: 0.5em;
+}

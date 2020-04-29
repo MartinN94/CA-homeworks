@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework_18.02</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="display-1 lead">New Year Countdown</h1>
+        <h1 class="count display-2 lead text-dark font-weight-bold"></h1>
+        <h2 class="text-dark">days hours minutes seconds</h2>
+        <h1 class="new-year display-2 lead"></h1>
+      </div>
+
+
+    
+
+
+
+
+    <script>
+
+
+        function printCountdown() { // creating function
+            var countDownDate = new Date("Jan 01, 2021 00:00:00").getTime(); // new years date in miliseconds
+            var now = new Date().getTime(); // present date in miliseconds
+            var diff = countDownDate - now; // difference from now to new year in miliseconds
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24)); //calculating days
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // calc hours
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); // calc minutes
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000); // calc secs  --- you have formulas for calc on google
+
+            const h = ['01', '02' , '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'];
+            const m = ['01', '02' , '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+            '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60'];
+            const s = ['01', '02' , '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40',
+            '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60'];
+
+            // we add const for hours, minutes and seconds because without them the value prited after will be one digit number
+
+
+            var para = document.querySelector(".count"); // link to our html element
+            para.textContent = days + " " + h[hours] + " " + m[minutes] + " " + s[seconds];// add the results ass text content
+
+            if (diff < 0){ // defining condition, if the countdown finishes it stops with counting and adds Happy New Year paragraph on our html doc
+                clearInterval(printCountdown)
+                var newYear = document.querySelector(".new-year"); 
+                newYear.textContent = "Happy New Year";
+                para.textContent = "";
+
+            }
+        }
+        
+        setInterval(printCountdown, 1000);
+
+
+
+
+    </script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
