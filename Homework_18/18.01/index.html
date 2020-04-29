@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework_18.01</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        
+/*
+*******************************************************************************************************************
+Javascript Date object practice
+*******************************************************************************************************************/
+
+        //1)
+        function currentDate (separator) {
+            var currDate = new Date(); // we create current date
+            const monthNum = ["01", "02", "03", "04", "05", "06",
+            "07", "08", "09", "10", "11", "12"]; // to be able to show the month with two digits we must take the month index from the array
+            var day = currDate.getDate(); // getting date
+            var month = monthNum[currDate.getMonth()]; // the index of the month (3) is taken form the array up
+            var year = currDate.getFullYear(); // getting year
+
+            
+            if(separator === "-"){ // defining the conditions for displaying
+                console.log(day+separator+month+separator+year);
+            } else if(separator === "|"){
+                console.log(day+separator+month+separator+year);
+            }else {
+                console.log(day+"/"+month+"/"+year);
+            }
+                
+        }
+        currentDate(); // calling the function
+        currentDate("-");
+        currentDate("|");
+
+
+        //2)
+        var getDaysInMonth = function(month,year) { // parametars
+
+        return new Date(year, month, 0).getDate(); // changing the parametars order to be valid date form
+        };
+
+        console.log(getDaysInMonth(4, 2020));
+
+
+        //3)
+        var month_name = function(data){
+            const monthNames = ["January", "February", "March", "April", "May", "June", //defining months costant
+            "July", "August", "September", "October", "November", "December"];
+            var monthName = monthNames[data.getMonth()] // same as in 1) instead of showing number we take the same index from the array
+            return monthName
+        }
+        console.log(month_name(new Date("10/11/2020")));
+
+
+        //4)
+        function isWeekend(data){ //defining a date format
+            
+            if ((new Date(data).getDay()) === (0 && 6)) {// the get day will show value from 0-6
+                console.log("Its weekend."); // saturday and sunday are 6 & 0 so we define condition
+                
+            } else {
+                console.log("Its not weekend.");
+                
+            }
+        }
+        isWeekend('Apr 26, 2020');
+
+
+        //5)
+        function date_diff_indays(data1 , data2){ //data1 - parameter 1 , data2 - parameter 2
+            var date1 = new Date(data1); // setting date with parameter 1
+            var date2 = new Date(data2); // setting date with parameter 2
+            var diff = Math.floor((Date.UTC(date2.getFullYear(), date2.getMonth(), 
+            date2.getDate()) - Date.UTC(date1.getFullYear(), date1.getMonth(), 
+            date1.getDate()) ) /(1000 * 60 * 60 * 24));
+            // we use Date.UTC to transform the values in miliseconds (more about Date.UTC: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC)
+            // with math function we are substracting the nearest from farest date and we get result in miliseconds
+            //(if we go date1 - date2 we will get negative result)
+            //to be able to get result in days we devide miliseconds with: valueOfmilisecond*valueOfsecond*valueOfminute*valueOfhoursinDay
+            return diff
+        }
+        console.log(date_diff_indays('04/02/2014', '11/04/2014'));
+        
+
+        //6)
+        var lastday = function(year, month){
+            var days = new Date(year, month, 0).getDate()
+            return days
+        }
+        // here we add 0 for days in the parameter, so that getDate function show the lenght of the months (months start from 1 to 31!)
+        console.log(lastday(2014,11));
+
+
+        //7)
+        var dates = ["1/1/2020", "10/4/2020", "7/5/2019","1/6/2020", "31/8/2020", "9/9/2020", "12/12/2021", "15/10/2019"];
+
+        function maxDate(dates) {
+            var dateMsArr = []; //creating empty array to push value of each date in miliseconds
+
+            for (var i = 0; i < dates.length; i++) {
+                var temp = dates[i].split("/"); //we split the dates
+                
+                var validDate = temp[1] + '/' + temp[0] + '/' + temp[2]; // we change the values form d/m/y to m/d/y to be able to add date format
+                validDate = new Date(validDate); // we add date format
+                dateMsArr.push(validDate.getTime()); // we take the miliseconds from start od counting
+            }
+
+            var maximumDate = Math.max.apply(null, dateMsArr); //we use math max function to be able to pick the highest number in miliseconds
+            maximumDate = new Date(maximumDate); //we add date format to the picked max miliseconds nubmer
+            
+            var day = maximumDate.getDate();  // to be able to display in the same format as in the given array we get values for day, month and year and merge them in result
+            var month = maximumDate.getMonth() + 1;
+            var year = maximumDate.getFullYear();
+
+            return day + '/' + month + '/' + year;
+        }
+
+        console.log(maxDate(dates));
+
+
+/*******************************************************************************************************************
+Javascript callback function practice
+*******************************************************************************************************************/
+
+        var some_array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+                
+        function myMap(data, callback) {
+                    
+            for (var i = 0; i < data.length; i++) { // we create for loop to be able to go throug every value of the array
+                        if (typeof callback === "function") {
+                            callback(data[i]); // if the callback is a function go through every value of the array
+                        }
+                }
+            }
+
+            myMap(some_array, function(increase) { // some array is where the values are
+                 console.log(increase + 1);        // increase is a parametar that goes throu every some_array index and increases it 
+            });
+
+            myMap(some_array, function(double) {   // same as before but doubles
+                console.log(double * 2);
+            });
+
+            myMap(some_array, function(square) {   // sqare: some_array[0].value*some_array[0].value
+                console.log(square * square);
+            });
+
+
+    </script>
+</body>
+</html>
