@@ -1,0 +1,21 @@
+header {
+    background-color: rgb(38, 44, 134);
+    color: whitesmoke;
+}
+
+
+.btn {
+    background-color: rgb(121, 25, 121) !important;
+    color: whitesmoke !important;
+    padding: 10px 30px !important;
+    border-radius: 4px !important;
+}
+
+.modal-header {
+    background-color: rgb(38, 44, 134) !important;
+    color: whitesmoke !important;
+}
+
+input {
+    border-radius: 4px !important;
+}
