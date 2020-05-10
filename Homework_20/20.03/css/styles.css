@@ -1,0 +1,20 @@
+html {
+    background-color: rgb(68, 68, 219);  
+}
+
+main {
+    background-color: rgb(68, 68, 219);
+    width: 100%;
+    height: 100%;
+}
+.blog-box {
+    background-color: rgb(103, 103, 241);
+}
+.number {
+    background-color: whitesmoke !important;
+    color: rgb(68, 68, 219);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-left: -25px;
+}
