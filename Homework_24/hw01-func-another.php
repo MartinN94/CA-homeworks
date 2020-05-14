@@ -8,6 +8,7 @@
 <body>
     <?php
         include("hw02-func-html.php");
+        makeSelect();
     ?>
 </body>
 </html>

@@ -23,10 +23,17 @@
 
     function makeSelect(){
         if (MONTHS) {
+            echo "<form action='' method='POST'>";
+            echo "<label for='months'><b>Please choose a month.</b></label>";
+            echo "<br>";
+            echo "<br>";
             echo "<select name='months' id='months'>";
             echo "<option selected>Choose month</option>";
             echo makeOptions();
             echo "</select>";
+            echo "<button type='submit' name='submitt'>Submit</button>";
+            echo "</form><br>";
+            echo response();
         } else {
             echo "<script> alert('Select valid months array!') </script>";
         }
@@ -45,15 +52,3 @@
 ?>
 
 
-    <form action="" method="POST">
-        <label for="months"><b>Please choose a month.</b></label>
-        <br>
-        <br>
-        <?php
-            makeSelect();
-        ?>
-        <button type="submit" name="submitt">Submit</button>
-    </form>
-        <?php
-            response();
-        ?>
