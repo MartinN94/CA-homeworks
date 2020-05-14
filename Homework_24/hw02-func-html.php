@@ -1,6 +1,6 @@
 <?php 
 
-    const months = [
+    const MONTHS = [
         "January" => "31",
         "February" => "28 days, if leap year 29",
         "March" => "31",
@@ -16,13 +16,13 @@
     ];
     
     function makeOptions(){
-        foreach (months as $key => $value) {
+        foreach (MONTHS as $key => $value) {
             echo "<option value='$key'>$key</option>";
         }
     };
 
     function makeSelect(){
-        if (months) {
+        if (MONTHS) {
             echo "<select name='months' id='months'>";
             echo "<option selected>Choose month</option>";
             echo makeOptions();
@@ -38,22 +38,13 @@
             $selected = $_POST["months"];
         };
         if (isset($selected)) {
-            echo $selected." has: ".months[$selected]." days";
+            echo "<p>".$selected." has: ".MONTHS[$selected]." days </p>";
         };
     };
 
-
-    
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <form action="" method="POST">
         <label for="months"><b>Please choose a month.</b></label>
         <br>
@@ -63,11 +54,6 @@
         ?>
         <button type="submit" name="submitt">Submit</button>
     </form>
-    <p>
         <?php
             response();
         ?>
-    </p>
-
-</body>
-</html>
