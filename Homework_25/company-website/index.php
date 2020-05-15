@@ -1,17 +1,10 @@
 <?php
 
-    $navItems = [
-        'index.php?id=about' => 'About',
-        'index.php?id=index' => 'Home',
-        'index.php?id=contact' => 'Contact',
-        'index.php?id=login' => 'Login'
-    ];
-
     if (isset($_POST['login'])) {
         if (!empty($_POST['username'])) {
             $username = $_POST['username'];
             setcookie('Username', $username);
-            header("Location: http://app.test/index.php?id=about");
+            header("Location: http://app.test/company-website/index.php?id=about");
         }
     };
 
@@ -19,10 +12,6 @@
 
 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
