@@ -43,8 +43,8 @@ array_shift($data);
             <label class="my-1 mr-2" >Genre: </label>
             <select class="custom-select my-1 mr-sm-2" name="genre">
                 <option selected>Choose...</option>
-                <?php if(isset($studios)):?>
-                    <?php foreach($studios as $name):?>
+                <?php if(isset($genre)):?>
+                    <?php foreach($genre as $name):?>
                         <option value=<?php echo $name;?> > <?php echo $name;?> </option>
                     <?php endforeach;?>
                 <?php endif;?>
@@ -52,8 +52,8 @@ array_shift($data);
             <label class="my-1 mr-2" >Company Production: </label>
             <select class="custom-select my-1 mr-sm-2" name="studio">
                 <option selected>Choose...</option>
-                <?php if(isset($genre)):?>
-                    <?php foreach($genre as $name):?>
+                <?php if(isset($studios)):?>
+                    <?php foreach($studios   as $name):?>
                         <option value=<?php echo $name;?> > <?php echo $name;?> </option>
                     <?php endforeach;?>
                 <?php endif;?>
