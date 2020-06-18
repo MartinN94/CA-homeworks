@@ -1,0 +1,8 @@
+{
+  "name": "marin/homework39",
+  "description": "homework_39",
+  "type": "project",
+  "require": {
+    "mpdf/mpdf": "^8.0"
+  }
+}

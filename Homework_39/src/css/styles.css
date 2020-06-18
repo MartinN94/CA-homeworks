@@ -1,0 +1,41 @@
+.container {
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+.info {
+  background-color: red;
+  padding: 20px;
+}
+.info-th {
+  width: 200px;
+  text-align: right;
+}
+.info-th2 {
+  width: 600px;
+  text-align: left;
+}
+.main {
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.main th {
+  text-align: left;
+  width: 110px;
+}
+.product {
+  width: 220px;
+}
+.notes-th {
+  width: 650px;
+  text-align: left;
+  background-color: silver;
+  padding: 20px;
+}
+.total {
+  width: 250px;
+  text-align: right;
+  padding: 20px;
+  background-color: red;
+}
